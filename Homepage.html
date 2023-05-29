@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Bag Emporium - Stylish Bags for Men and Women</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+	  background-image: url('https://img.freepik.com/free-vector/white-elegant-texture-wallpaper_23-2148417584.jpg?w=1380&t=st=1685357148~exp=1685357748~hmac=d6e3180468fb86af9a1dc6cd8a90a39b7baee8afb48fd79a80972cbd5450fa0d');
+	  background-size: cover;
+	 }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #333;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      padding: 20px;
+      flex: 1;
+    }
+
+    h1, h2 {
+      color: #FFF;
+    }
+
+    h2 {
+      color: #000;
+    }
+
+    .product {
+      display: inline-block;
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 200px;
+      height: 200px;
+    }
+
+    footer {
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="data:image/jpeg;base64,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" alt="StyleVault Logo">
+    <h1>Welcome to The Bag Emporium</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="Homepage.html">Home</a></li>
+      <li><a href="Product_Gallery.html">Product Gallery</a></li>
+      <li><a href="Order_Page.html">Order</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>About Us</h2>
+    <p>Welcome to The Bag Emporium! We offer a wide range of stylish bags for both men and women. Whether you're looking for a sophisticated briefcase, a trendy backpack, or a fashionable handbag, we've got you covered.</p>
+
+    <h2>Featured Products</h2>
+    <div class="product">
+      <img src="https://dynamic.zacdn.com/zJpWVpAMrzJ9a_RUguEyqcxp9Mw=/fit-in/346x500/filters:quality(95):fill(ffffff)/https://static-ph.zacdn.com/p/milliot-co-3176-5392912-1.jpg" alt="Milliot & Co. Theodare Backpack">
+      <h3>Milliot & Co. Theodare Backpack</h3>
+      <p>Price: ₱2,222.00</p>
+       <a href="Order_Page.html">Buy Now</a>
+    </div>
+
+    <div class="product">
+      <img src="https://underarmour.scene7.com/is/image/Underarmour/1362365-001_SLF_SL?rp=standard-0pad|pdpZoomDesktop&scl=0.85&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=1500,1500" alt="UA Halftime Backpack">
+      <h3>UA Halftime Backpack</h3>
+      <p>Price: ₱2,595.00</p>
+       <a href="Order_Page.html">Buy Now</a>
+    </div>
+
+    <div class="product">
+      <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4716296f-9b6a-4023-b157-ea71b117a196/heritage-backpack-GNXcv9.png" alt="Nike Heritage Backpack">
+      <h3>Nike Heritage Backpack</h3>
+      <p>Price: ₱1,795.00</p>
+      <a href="Order_Page.html">Buy Now</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2023 The Bag Emporium. All rights reserved.</p>
+  </footer>
+</body>
+</html>

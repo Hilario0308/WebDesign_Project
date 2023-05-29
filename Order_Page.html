@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Page</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+	  background-image: url('https://img.freepik.com/free-vector/white-elegant-texture-wallpaper_23-2148417584.jpg?w=1380&t=st=1685357148~exp=1685357748~hmac=d6e3180468fb86af9a1dc6cd8a90a39b7baee8afb48fd79a80972cbd5450fa0d');
+	  background-size: cover;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .carousel-container {
+      margin-bottom: 20px;
+    }
+
+    .carousel {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 5px;
+    }
+
+    .carousel::-webkit-scrollbar-track {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .product {
+      flex: 0 0 auto;
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+
+    .product img {
+      max-width: 150px;
+      max-height: 150px;
+    }
+
+    .order-form input[type="text"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .order-form input[type="submit"] {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .order-summary {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+
+    .order-summary p {
+      margin: 5px 0;
+    }
+	  .navigation {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+        }
+  </style>
+  <script>
+    // JavaScript function to handle form submission
+    function submitOrder() {
+      // Get selected products
+      var selectedProducts = [];
+      var productCheckboxes = document.getElementsByClassName('product-checkbox');
+      for (var i = 0; i < productCheckboxes.length; i++) {
+        if (productCheckboxes[i].checked) {
+          selectedProducts.push({
+            name: productCheckboxes[i].getAttribute('data-name'),
+            price: parseFloat(productCheckboxes[i].getAttribute('data-price'))
+          });
+        }
+      }
+
+      // Get customer information
+      var customerName = document.getElementById('customer-name').value;
+      var customerEmail = document.getElementById('customer-email').value;
+
+      // Validate customer information
+      if (customerName === '' || customerEmail === '') {
+        alert('Please provide your name and email.');
+        return;
+      }
+
+      // Compute total amount
+      var totalAmount = 0;
+      for (var j = 0; j < selectedProducts.length; j++) {
+        totalAmount += selectedProducts[j].price;
+      }
+
+      // Display order summary
+      var orderSummary = 'Order Summary:\n\n';
+      for (var k = 0; k < selectedProducts.length; k++) {
+        orderSummary += selectedProducts[k].name + ' - ₱' + selectedProducts[k].price.toFixed(2) + '\n';
+      }
+      orderSummary += '\nTotal Amount: ₱' + totalAmount.toFixed(2);
+
+      // Display confirmation window
+      if (confirm(orderSummary)) {
+        alert('Order placed successfully.\n\n' + orderSummary);
+        // You can perform additional actions here, such as submitting the order to a server.
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Order Page</h1>
+   <div class="navigation">
+        <a href="Homepage.html">Home</a>
+        <a href="Product_Gallery.html">Product</a>
+		<a href="Order_Page.html">Order</a>
+    </div>
+
+  <div class="carousel-container">
+    <h2>Men's Bags</h2>
+    <div class="carousel">
+      <div class="product">
+        <img src="https://dynamic.zacdn.com/zJpWVpAMrzJ9a_RUguEyqcxp9Mw=/fit-in/346x500/filters:quality(95):fill(ffffff)/https://static-ph.zacdn.com/p/milliot-co-3176-5392912-1.jpg" alt="Milliot & Co. Theodare Backpack">
+        <p>Milliot & Co. Theodare Backpack</p>
+        <p>₱2,222.00</p>
+        <input type="checkbox" class="product-checkbox" data-name="Milliot & Co. Theodare Backpack" data-price="2222.00">
+      </div>
+
+      <div class="product">
+        <img src="https://underarmour.scene7.com/is/image/Underarmour/1362365-001_SLF_SL?rp=standard-0pad|pdpZoomDesktop&scl=0.85&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=1500,1500" alt="UA Halftime Backpack">
+        <p>UA Halftime Backpack</p>
+        <p>₱2,595.00</p>
+        <input type="checkbox" class="product-checkbox" data-name="UA Halftime Backpack" data-price="2595.00">
+      </div>
+
+      <div class="product">
+        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4716296f-9b6a-4023-b157-ea71b117a196/heritage-backpack-GNXcv9.png" alt="Nike Heritage Backpack">
+        <p>Nike Heritage Backpack</p>
+        <p>₱1,795.00</p>
+        <input type="checkbox" class="product-checkbox" data-name="Nike Heritage Backpack" data-price="1795.00">
+      </div>
+
+      <div class="product">
+        <img src="https://www.tradeinn.com/f/13812/138124116/new-balance-opp-core-backpack.jpg" alt="New balance Opp Core Backpack">
+        <p>New balance Opp Core Backpack</p>
+        <p>₱1,220.99</p>
+        <input type="checkbox" class="product-checkbox" data-name="New balance Opp Core Backpack" data-price="1220.99">
+      </div>
+
+      <div class="product">
+        <img src="https://www.brandfield.com/media/catalog/product/cache/image/9df78eab33525d08d6e5fb8d27136e95/8/0/8058043226309-01.jpg" alt="Valentino Bags Anakin Black Backpack">
+        <p>Valentino Bags Anakin Black Backpack</p>
+        <p>₱5,531.35</p>
+        <input type="checkbox" class="product-checkbox" data-name="Valentino Bags Anakin Black Backpack" data-price="5531.35">
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-container">
+    <h2>Women's Bags</h2>
+    <div class="carousel">
+      <div class="product">
+        <img src="https://dynamic.zacdn.com/PEtOdOgK0L4R2-pmSCEIzh3-3-o=/fit-in/346x500/filters:quality(95):fill(ffffff)/https://static-ph.zacdn.com/p/balenciaga-5011-1658252-1.jpg" alt="BALENCIAGA Balenciaga Hourglass Top Shoulder Bag in Black">
+        <p>BALENCIAGA Balenciaga Hourglass Top Shoulder Bag in Black</p>
+        <p>₱130,711.00</p>
+        <input type="checkbox" class="product-checkbox" data-name="BALENCIAGA Balenciaga Hourglass Top Shoulder Bag in Black" data-price="130711.00">
+      </div>
+
+      <div class="product">
+        <img src="https://lacoste.com.ph/media/catalog/product/cache/26fe6a6398e2195b866f326b17d6b664/n/f/nf1890po_000_01.jpg" alt="Women's L.12.12 Concept Vertical Zip Tote Bag">
+        <p>Women's L.12.12 Concept Vertical Zip Tote Bag</p>
+        <p>₱5,650.00</p>
+        <input type="checkbox" class="product-checkbox" data-name="Women's L.12.12 Concept Vertical Zip Tote Bag" data-price="5650.00">
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-images.farfetch-contents.com/14/24/81/20/14248120_20245671_322.jpg" alt="1995 Triple CC shoulder bag">
+        <p>1995 Triple CC shoulder bag</p>
+        <p>₱276,638.93</p>
+        <input type="checkbox" class="product-checkbox" data-name="1995 Triple CC shoulder bag" data-price="276638.93">
+      </div>
+
+      <div class="product">
+        <img src="https://media.dior.com/couture/ecommerce/media/catalog/product/Y/z/1676915476_M0538ONGE_M900_E01_GH.jpg?imwidth=800" alt="Small Lady Dior My AbcDior Bag">
+        <p>Small Lady Dior My AbcDior Bag</p>
+        <p>₱313,804.04</p>
+        <input type="checkbox" class="product-checkbox" data-name="Small Lady Dior My AbcDior Bag" data-price="313804.04">
+      </div>
+
+      <div class="product">
+        <img src="https://image.goxip.com/pyGiTtTolJdjLhUV7-2Ldd57bY8=/fit-in/500x500/filters:format(jpg):quality(80):fill(white)/https:%2F%2Fimg.mytheresa.com%2F1000%2F1000%2F95%2Fjpeg%2Fcatalog%2Fproduct%2Fc4%2FP00192425.jpg" alt="Gucci small Dionysus shoulder bag">
+        <p>Gucci small Dionysus shoulder bag</p>
+        <p>₱192,779.32</p>
+        <input type="checkbox" class="product-checkbox" data-name="Gucci small Dionysus shoulder bag" data-price="192779.32">
+      </div>
+    </div>
+  </div>
+
+  <form class="order-form">
+    <h2>Customer Information</h2>
+    <label for="customer-name">Name:</label>
+    <input type="text" id="customer-name">
+    <br>
+    <label for="customer-email">Email:</label>
+    <input type="text" id="customer-email">
+    <br>
+    <input type="submit" value="Place Order" onclick="submitOrder()">
+  </form>
+
+  <div class="order-summary"></div>
+
+</body>
+</html>
